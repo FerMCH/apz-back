@@ -1,0 +1,39 @@
+
+routes:
+    customers:
+        base: ${CUSTOMER_BASE}
+        get: ${CUSTOMER_GET}
+    loans:
+      base: ${LOAN_BASE}
+      get: ${LOAN_GET}
+    auth:
+      base: ${AUTH_BASE}
+      register: ${AUTH_REGISTER}
+      login: ${AUTH_LOGIN}
+
+aplazo:
+  zone: ${ZONE_ID}
+  secret: ${SECRET_KEY}
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: ${SQL_DLL}
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driverClassName: org.postgresql.Driver
+
+logging:
+  level:
+    root: ${LOG_LEVEL}
+
+  file:
+    name: logs/app.log
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
