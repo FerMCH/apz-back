@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +38,7 @@ public class CustomersController {
      * @throws BadRequestException 
      * @throws NotFoundException 
      */
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("${routes.customers.get}")
     public ResponseEntity<Object> getCustomer(@PathVariable String customerId) throws BadRequestException, NotFoundException {
         log.info(LogConstants.CALL_METHOD, LogConstants.GET_CUSTOMER);
@@ -53,7 +52,6 @@ public class CustomersController {
      * @return a new save Customer.
      * @throws InternalErrorException 
      */
-    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<Object> createCustomer(@Valid @RequestBody CustomerRequest customer) throws InternalErrorException {
         log.info(LogConstants.CALL_METHOD, LogConstants.CREATE_CUSTOMER);

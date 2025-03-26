@@ -14,6 +14,7 @@ routes:
 aplazo:
   zone: ${ZONE_ID}
   secret: ${SECRET_KEY}
+  crossorigin: ${CROSSORIGIN}
 
 spring:
   jpa:
@@ -26,6 +27,8 @@ spring:
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driverClassName: org.postgresql.Driver
+
+
 
 logging:
   level:

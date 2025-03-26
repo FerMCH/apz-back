@@ -30,6 +30,7 @@ public class LoanController {
 
     private LoanService loanService;
 
+    
     @GetMapping("${routes.loans.get}")
     public ResponseEntity<Object> getLoan(@PathVariable String loanId) throws BadRequestException, NotFoundException {
         log.info(LogConstants.CALL_METHOD, LogConstants.GET_CUSTOMER);

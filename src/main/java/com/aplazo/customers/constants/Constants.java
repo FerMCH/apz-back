@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access= AccessLevel.PRIVATE)
 public class Constants {
 
-    public static final long CREDIT_LINE_AMOUNT = 1L;
+    public static final long CREDIT_LINE_AMOUNT = 20000L;
 
-    public static final long AVAILABLE_CREDIT = 0L;
+    public static final long AVAILABLE_CREDIT = 20000L;
 
     public static final String STATUS_ACTIVE = "ACTIVE";
 

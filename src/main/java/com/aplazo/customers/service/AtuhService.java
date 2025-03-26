@@ -6,5 +6,5 @@ public interface AtuhService {
 
     TokenResponse createUser(String username, String password);
 
-    TokenResponse login(String username);
+    TokenResponse login(String username, String password);
 }

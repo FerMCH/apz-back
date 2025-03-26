@@ -13,5 +13,7 @@ public class Properties {
 
     private String zone;
     private String secret;
+    private String crossorigin;
+    
 
 }
