@@ -1,40 +1,46 @@
 version: '3.8'
 
 services:
+  java_db:
+    image: postgres:15-alpine
+    container_name: java_db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Postgres1.
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   java_app:
     build: .
     image: aplazo-api:latest
     container_name: java_app
     ports:
-      - "8080:8080"
+      - 8080:8080
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
-      - CUSTOMER_BASE=/api/customers
-      - CUSTOMER_GET=/all
-      - LOAN_BASE=/api/loans
-      - LOAN_GET=/all
-      - AUTH_BASE=/api/auth
+      - CUSTOMER_BASE=/v1/customers
+      - CUSTOMER_GET=/{customerId}
+      - LOAN_BASE=/v1/loans
+      - LOAN_GET=/{loanId}
+      - AUTH_BASE=/v1/auth
       - AUTH_REGISTER=/register
       - AUTH_LOGIN=/login
       - ZONE_ID=America/Mexico_City
-      - SECRET_KEY=your-secret-key-change-me
+      - SECRET_KEY=s7d9FkL2qXp5vRt8wYbA1zNc4Ef6GhP7JmK3lOoIiUyV0QxW9rT5uB4nMjDvCeHkS5aZpLq8eR2tF1gG7yI3wD4hJ6uN9vX0mZbVcC8lO5fP2qB1rT3yH4jK9nM6iU7oW
       - CROSSORIGIN=http://localhost:4200
-      - SQL_DDL=update
-      - DB_URL=jdbc:postgresql://java_db:5432/Aplazo
+      - SQL_DDL=create-drop
+      - DB_URL=jdbc:postgresql://java_db:5432/postgres
       - DB_USER=postgres
       - DB_PASSWORD=Postgres1.
       - LOG_LEVEL=INFO
     depends_on:
       - java_db
-  java_db:
-    image: postgres:15-alpine
-    container_name: java_db
-    environment:
-      - POSTGRES_DB=Aplazo
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Postgres1.
-    ports:
-      - "5432:5432"
+
+
 
     
 
