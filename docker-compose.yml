@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  java_app:
+    build: .
+    image: aplazo-api:latest
+    container_name: java_app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - CUSTOMER_BASE=/api/customers
+      - CUSTOMER_GET=/all
+      - LOAN_BASE=/api/loans
+      - LOAN_GET=/all
+      - AUTH_BASE=/api/auth
+      - AUTH_REGISTER=/register
+      - AUTH_LOGIN=/login
+      - ZONE_ID=America/Mexico_City
+      - SECRET_KEY=your-secret-key-change-me
+      - CROSSORIGIN=http://localhost:4200
+      - SQL_DDL=update
+      - DB_URL=jdbc:postgresql://java_db:5432/Aplazo
+      - DB_USER=postgres
+      - DB_PASSWORD=Postgres1.
+      - LOG_LEVEL=INFO
+    depends_on:
+      - java_db
+  java_db:
+    image: postgres:15-alpine
+    container_name: java_db
+    environment:
+      - POSTGRES_DB=Aplazo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Postgres1.
+    ports:
+      - "5432:5432"
+
+    
+
+
+  
+  
