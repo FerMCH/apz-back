@@ -18,10 +18,15 @@ aplazo:
 
 spring:
   jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        ddl-auto: ${SQL_DLL}
+        transaction:
+            jta:
+                platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
     database: POSTGRESQL
     show-sql: true
-    hibernate:
-      ddl-auto: ${SQL_DLL}
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
