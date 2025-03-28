@@ -32,7 +32,7 @@ services:
       - ZONE_ID=America/Mexico_City
       - SECRET_KEY=s7d9FkL2qXp5vRt8wYbA1zNc4Ef6GhP7JmK3lOoIiUyV0QxW9rT5uB4nMjDvCeHkS5aZpLq8eR2tF1gG7yI3wD4hJ6uN9vX0mZbVcC8lO5fP2qB1rT3yH4jK9nM6iU7oW
       - CROSSORIGIN=http://localhost:4200
-      - SQL_DDL=create-drop
+      - SQL_DDL=create
       - DB_URL=jdbc:postgresql://java_db:5432/postgres
       - DB_USER=postgres
       - DB_PASSWORD=Postgres1.
